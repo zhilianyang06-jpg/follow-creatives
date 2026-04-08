@@ -1,214 +1,161 @@
 #!/usr/bin/env node
 
 // ============================================================================
-// Follow Creatives — Generate Digest
+// Follow Creatives — Prepare Digest
 // ============================================================================
-// Runs in GitHub Actions on a weekly schedule.
-// Reads the latest feed JSON files, calls Claude API to generate a digest,
-// then posts the result as a new ClickUp Doc.
+// Gathers everything the LLM needs to produce a digest:
+// - Fetches the central feeds (LinkedIn posts, YouTube videos, podcasts)
+// - Fetches the latest prompts from GitHub
+// - Reads the user's config (language, delivery method)
+// - Outputs a single JSON blob to stdout
 //
-// Required env vars (set as GitHub Secrets):
-//   ANTHROPIC_API_KEY     — Claude API key
-//   CLICKUP_API_TOKEN     — ClickUp personal token (starts with pk_)
-//   CLICKUP_WORKSPACE_ID  — Numeric workspace/team ID from ClickUp URL
-//   CLICKUP_PARENT_ID     — Space or Folder ID where docs will be created
-//   CLICKUP_PARENT_TYPE   — 4 for Space, 6 for Folder (default: 4)
+// Usage: node prepare-digest.js
+// Output: JSON to stdout
 // ============================================================================
 
 import { readFile } from 'fs/promises';
 import { existsSync } from 'fs';
 import { join } from 'path';
+import { homedir } from 'os';
 
-const SCRIPT_DIR = decodeURIComponent(new URL('.', import.meta.url).pathname);
-const REPO_ROOT = join(SCRIPT_DIR, '..');
+const USER_DIR = join(homedir(), '.follow-creatives');
+const CONFIG_PATH = join(USER_DIR, 'config.json');
 
-// -- File helpers ------------------------------------------------------------
+// IMPORTANT: Replace YOUR_GITHUB_USERNAME with your actual GitHub username
+// after pushing this repo to GitHub.
+const REPO_BASE = 'https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/follow-creatives/main';
+const FEED_X_URL        = `${REPO_BASE}/feed-x.json`;
+const FEED_LINKEDIN_URL = `${REPO_BASE}/feed-linkedin.json`;
+const FEED_YOUTUBE_URL  = `${REPO_BASE}/feed-youtube.json`;
+const FEED_PODCASTS_URL = `${REPO_BASE}/feed-podcasts.json`;
 
-async function readFeedFile(filename) {
-  const path = join(REPO_ROOT, filename);
-  if (!existsSync(path)) return null;
-  try {
-    return JSON.parse(await readFile(path, 'utf-8'));
-  } catch {
-    return null;
-  }
+const PROMPTS_BASE = `${REPO_BASE}/prompts`;
+const PROMPT_FILES = [
+  'summarize-tweets.md',
+  'summarize-linkedin.md',
+  'summarize-youtube.md',
+  'summarize-podcast.md',
+  'digest-intro.md',
+  'translate.md'
+];
+
+async function fetchJSON(url) {
+  const res = await fetch(url);
+  if (!res.ok) return null;
+  return res.json();
 }
 
-async function readPromptFile(filename) {
-  const path = join(REPO_ROOT, 'prompts', filename);
-  if (!existsSync(path)) return '';
-  return readFile(path, 'utf-8');
+async function fetchText(url) {
+  const res = await fetch(url);
+  if (!res.ok) return null;
+  return res.text();
 }
-
-// -- Claude API --------------------------------------------------------------
-
-async function generateDigest(feedData, prompts) {
-  const apiKey = process.env.ANTHROPIC_API_KEY;
-  if (!apiKey) throw new Error('ANTHROPIC_API_KEY not set');
-
-  const system = [
-    'You are an ad creative and performance marketing curator.',
-    '',
-    '== DIGEST FORMAT ==',
-    prompts.digest_intro,
-    '',
-    '== LINKEDIN SUMMARIZATION RULES ==',
-    prompts.summarize_linkedin,
-    '',
-    '== YOUTUBE SUMMARIZATION RULES ==',
-    prompts.summarize_youtube,
-    '',
-    '== PODCAST SUMMARIZATION RULES ==',
-    prompts.summarize_podcast,
-  ].join('\n');
-
-  const userContent = [
-    'Generate a complete digest from the feed data below.',
-    'Follow all formatting and summarization rules exactly.',
-    'Only include content that has actual posts, videos, or episodes.',
-    'Every item MUST include its source URL.',
-    '',
-    'FEED DATA:',
-    JSON.stringify(feedData, null, 2),
-  ].join('\n');
-
-  const res = await fetch('https://api.anthropic.com/v1/messages', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'x-api-key': apiKey,
-      'anthropic-version': '2023-06-01',
-    },
-    body: JSON.stringify({
-      model: 'claude-sonnet-4-6',
-      max_tokens: 4096,
-      system,
-      messages: [{ role: 'user', content: userContent }],
-    }),
-  });
-
-  if (!res.ok) {
-    const err = await res.text();
-    throw new Error(`Claude API error (${res.status}): ${err}`);
-  }
-
-  const result = await res.json();
-  return result.content[0].text;
-}
-
-// -- ClickUp Docs API (v3) ---------------------------------------------------
-
-async function postToClickUp(digestText, docName) {
-  const apiToken  = process.env.CLICKUP_API_TOKEN;
-  const workspaceId = process.env.CLICKUP_WORKSPACE_ID;
-  const parentId  = process.env.CLICKUP_PARENT_ID;
-  const parentType = parseInt(process.env.CLICKUP_PARENT_TYPE || '4');
-
-  if (!apiToken)    throw new Error('CLICKUP_API_TOKEN not set');
-  if (!workspaceId) throw new Error('CLICKUP_WORKSPACE_ID not set');
-
-  const headers = {
-    'Content-Type': 'application/json',
-    'Authorization': apiToken,
-  };
-
-  // Step 1: Create the doc
-  const docBody = { name: docName };
-  if (parentId) docBody.parent = { id: parentId, type: parentType };
-
-  const createRes = await fetch(
-    `https://api.clickup.com/api/v3/workspaces/${workspaceId}/docs`,
-    { method: 'POST', headers, body: JSON.stringify(docBody) }
-  );
-
-  if (!createRes.ok) {
-    const err = await createRes.text();
-    throw new Error(`ClickUp create doc error (${createRes.status}): ${err}`);
-  }
-
-  const doc = await createRes.json();
-  const docId = doc.id;
-  console.log(`Created ClickUp doc: ${docId}`);
-
-  // Step 2: Create a page with the digest content
-  const pageRes = await fetch(
-    `https://api.clickup.com/api/v3/workspaces/${workspaceId}/docs/${docId}/pages`,
-    {
-      method: 'POST',
-      headers,
-      body: JSON.stringify({
-        name: docName,
-        content: digestText,
-        content_format: 'text/md',
-      }),
-    }
-  );
-
-  if (!pageRes.ok) {
-    const err = await pageRes.text();
-    throw new Error(`ClickUp create page error (${pageRes.status}): ${err}`);
-  }
-
-  const page = await pageRes.json();
-  console.log(`Created ClickUp page: ${page.id}`);
-  return { docId, pageId: page.id };
-}
-
-// -- Main --------------------------------------------------------------------
 
 async function main() {
-  console.log('Reading feed files...');
+  const errors = [];
 
-  const [feedLinkedIn, feedYouTube, feedPodcasts, feedX] = await Promise.all([
-    readFeedFile('feed-linkedin.json'),
-    readFeedFile('feed-youtube.json'),
-    readFeedFile('feed-podcasts.json'),
-    readFeedFile('feed-x.json'),
-  ]);
-
-  const linkedin  = feedLinkedIn?.linkedin  || [];
-  const youtube   = feedYouTube?.youtube    || [];
-  const podcasts  = feedPodcasts?.podcasts  || [];
-  const x         = feedX?.x               || [];
-
-  const totalPosts    = linkedin.reduce((sum, p) => sum + (p.posts?.length   || 0), 0);
-  const totalVideos   = youtube.reduce((sum, c)  => sum + (c.videos?.length  || 0), 0);
-  const totalEpisodes = podcasts.length;
-  const totalTweets   = x.reduce((sum, a)        => sum + (a.tweets?.length  || 0), 0);
-
-  console.log(`Content: ${totalPosts} posts, ${totalVideos} videos, ${totalEpisodes} episodes, ${totalTweets} tweets`);
-
-  if (totalPosts + totalVideos + totalEpisodes + totalTweets === 0) {
-    console.log('No content in feeds — skipping digest generation.');
-    return;
+  // 1. Read user config
+  let config = {
+    language: 'en',
+    frequency: 'daily',
+    delivery: { method: 'stdout' }
+  };
+  if (existsSync(CONFIG_PATH)) {
+    try {
+      config = JSON.parse(await readFile(CONFIG_PATH, 'utf-8'));
+    } catch (err) {
+      errors.push(`Could not read config: ${err.message}`);
+    }
   }
 
-  // Load prompts
-  const [digestIntro, summarizeLinkedIn, summarizeYoutube, summarizePodcast] = await Promise.all([
-    readPromptFile('digest-intro.md'),
-    readPromptFile('summarize-linkedin.md'),
-    readPromptFile('summarize-youtube.md'),
-    readPromptFile('summarize-podcast.md'),
+  // 2. Fetch all feeds in parallel
+  const [feedX, feedLinkedIn, feedYouTube, feedPodcasts] = await Promise.all([
+    fetchJSON(FEED_X_URL),
+    fetchJSON(FEED_LINKEDIN_URL),
+    fetchJSON(FEED_YOUTUBE_URL),
+    fetchJSON(FEED_PODCASTS_URL)
   ]);
 
-  const prompts = { digest_intro: digestIntro, summarize_linkedin: summarizeLinkedIn, summarize_youtube: summarizeYoutube, summarize_podcast: summarizePodcast };
-  const feedData = { linkedin, youtube, podcasts, x };
+  if (!feedX)        errors.push('Could not fetch X/Twitter feed');
+  if (!feedLinkedIn) errors.push('Could not fetch LinkedIn feed');
+  if (!feedYouTube)  errors.push('Could not fetch YouTube feed');
+  if (!feedPodcasts) errors.push('Could not fetch podcast feed');
 
-  console.log('Calling Claude API to generate digest...');
-  const digest = await generateDigest(feedData, prompts);
-  console.log('Digest generated.');
+  // 3. Load prompts with priority: user custom > remote (GitHub) > local default
+  const prompts = {};
+  const scriptDir = decodeURIComponent(new URL('.', import.meta.url).pathname);
+  const localPromptsDir = join(scriptDir, '..', 'prompts');
+  const userPromptsDir = join(USER_DIR, 'prompts');
 
-  const dateStr = new Date().toLocaleDateString('en-US', {
-    year: 'numeric', month: 'long', day: 'numeric',
-  });
-  const docName = `Ad Creative Digest — ${dateStr}`;
+  for (const filename of PROMPT_FILES) {
+    const key = filename.replace('.md', '').replace(/-/g, '_');
+    const userPath = join(userPromptsDir, filename);
+    const localPath = join(localPromptsDir, filename);
 
-  console.log(`Posting to ClickUp as "${docName}"...`);
-  await postToClickUp(digest, docName);
-  console.log('Done.');
+    if (existsSync(userPath)) {
+      prompts[key] = await readFile(userPath, 'utf-8');
+      continue;
+    }
+
+    const remote = await fetchText(`${PROMPTS_BASE}/${filename}`);
+    if (remote) {
+      prompts[key] = remote;
+      continue;
+    }
+
+    if (existsSync(localPath)) {
+      prompts[key] = await readFile(localPath, 'utf-8');
+    } else {
+      errors.push(`Could not load prompt: ${filename}`);
+    }
+  }
+
+  // 4. Build the output blob
+  const xAccounts        = feedX?.x              || [];
+  const linkedinProfiles = feedLinkedIn?.linkedin || [];
+  const youtubeChannels  = feedYouTube?.youtube   || [];
+  const podcasts         = feedPodcasts?.podcasts  || [];
+
+  const totalTweets  = xAccounts.reduce((sum, a) => sum + (a.tweets?.length || 0), 0);
+  const totalPosts   = linkedinProfiles.reduce((sum, p) => sum + (p.posts?.length || 0), 0);
+  const totalVideos  = youtubeChannels.reduce((sum, c) => sum + (c.videos?.length || 0), 0);
+
+  const output = {
+    status: 'ok',
+    generatedAt: new Date().toISOString(),
+
+    config: {
+      language: config.language || 'en',
+      frequency: config.frequency || 'daily',
+      delivery: config.delivery || { method: 'stdout' }
+    },
+
+    // Content to remix
+    x:        xAccounts,
+    linkedin: linkedinProfiles,
+    youtube:  youtubeChannels,
+    podcasts,
+
+    stats: {
+      xBuilders:        xAccounts.length,
+      totalTweets,
+      linkedinProfiles: linkedinProfiles.length,
+      totalPosts,
+      youtubeChannels:  youtubeChannels.length,
+      totalVideos,
+      podcastEpisodes:  podcasts.length,
+      feedGeneratedAt:  feedX?.generatedAt || feedLinkedIn?.generatedAt || feedYouTube?.generatedAt || null
+    },
+
+    prompts,
+
+    errors: errors.length > 0 ? errors : undefined
+  };
+
+  console.log(JSON.stringify(output, null, 2));
 }
 
 main().catch(err => {
-  console.error('generate-digest failed:', err.message);
+  console.error('prepare-digest failed:', err.message);
   process.exit(1);
 });
