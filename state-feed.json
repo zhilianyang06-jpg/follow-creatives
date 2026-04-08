@@ -1,1 +1,31 @@
-{"seenPosts": {}, "seenVideos": {}, "seenEpisodes": {}, "resolvedChannels": {}}
+{
+  "seenPosts": {},
+  "seenVideos": {
+    "cJlBabiKX9k": 1775685806741,
+    "SIq7Ptp2iSc": 1775685808871,
+    "zqrCb27qFJQ": 1775685810493,
+    "Baa9YmKoZEA": 1775685812267,
+    "us_9ogFJRUo": 1775685815092,
+    "b7jmoy0tuvo": 1775685817181,
+    "W7fvDyrekxA": 1775685819064,
+    "9FlBKH-2_1U": 1775685820858,
+    "ZkMiQweGUGA": 1775685822643,
+    "zZJqp2KbnXs": 1775685824352,
+    "mpj0A4Prxu4": 1775685826415
+  },
+  "seenEpisodes": {},
+  "resolvedChannels": {
+    "channelId:https://www.youtube.com/@MotionCreativeAnalytics": "UC8VwR_Ccss4IRerNV4Kwh0Q",
+    "channelId:https://www.youtube.com/@HubSpotMarketing": "UCVeuau7DLrg7zlAjxxDbdww",
+    "channelId:https://www.youtube.com/@AhrefsCom": "UCWquNQV8Y0_defMKnGKrFOQ",
+    "channelId:https://www.youtube.com/@StuffAboutAdvertising": "UCErPUEJHpFwrTH-BDakPOZw",
+    "channelId:https://www.youtube.com/neilpatel": "UC4vHfacO3PW9KwtsV-UObYw",
+    "channelId:https://www.youtube.com/@dekkerfraser": "UCGVXtXuHVDBM8WIyLEX4sWw",
+    "channelId:https://www.youtube.com/@WholesaleTed": "UCC8wczy7734jKPhiR2UkS9A",
+    "channelId:https://www.youtube.com/@Adamerhartvideo": "UCKU0u3VbuYn0wD3CUr-Yn6A",
+    "channelId:https://www.youtube.com/@JordanPlattenExtra": "UCuF3J2tfm3iq7R1Zz42cnJQ",
+    "channelId:https://www.youtube.com/@danmartell": "UCA-mWX9CvCTVFWRMb9bKc9w",
+    "channelId:https://www.youtube.com/@alexcooperadcrate": "UC_M813lRmlnrqHDs5COWRGA"
+  },
+  "seenTweets": {}
+}

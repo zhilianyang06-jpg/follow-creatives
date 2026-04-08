@@ -1,1 +1,12 @@
-{"generatedAt": null, "lookbackHours": 48, "linkedin": [], "stats": {"profiles": 0, "totalPosts": 0}}
+{
+  "generatedAt": "2026-04-08T22:03:25.893Z",
+  "lookbackHours": 48,
+  "linkedin": [],
+  "stats": {
+    "profiles": 0,
+    "totalPosts": 0
+  },
+  "errors": [
+    "LinkedIn/Apify: HTTP 404 — {\n  \"error\": {\n    \"type\": \"record-not-found\",\n    \"message\": \"Actor with this name was not found\"\n  }\n}"
+  ]
+}
