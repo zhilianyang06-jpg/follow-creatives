@@ -1,23 +1,7 @@
 {
-  "generatedAt": "2026-04-08T23:04:00.868Z",
+  "generatedAt": "2026-04-08T23:12:28.194Z",
   "lookbackHours": 72,
   "youtube": [
-    {
-      "source": "youtube",
-      "name": "Sarah Levinger",
-      "channelUrl": "https://www.youtube.com/channel/UCKwfjt_7PU5N_2fTfHemXXg",
-      "channelId": "UCKwfjt_7PU5N_2fTfHemXXg",
-      "videos": [
-        {
-          "id": "RCrvd8pTUzo",
-          "title": "How to Write Headlines That Convert (Using Social Judgement Theory)",
-          "publishedAt": "2026-04-08T22:08:51+00:00",
-          "description": "In this session, we break down Social Judgment Theory, a psychological model that explains why people almost never change their minds in big leaps, and how to use it to write headlines that actually move people closer to buying.\n\nWe analyzed real ads across colostrum, mushroom coffee, barefoot shoes, and skincare, diagnosing exactly why their headlines land in the wrong zone (hint: most sit in indifference) and how to rewrite them to challenge beliefs just one step at a time.\n\nWe also walks thro",
-          "url": "https://www.youtube.com/watch?v=RCrvd8pTUzo",
-          "transcript": null
-        }
-      ]
-    },
     {
       "source": "youtube",
       "name": "Dan Martell",
@@ -25,27 +9,27 @@
       "channelId": "UCA-mWX9CvCTVFWRMb9bKc9w",
       "videos": [
         {
-          "id": "SSygWeXAOh8",
-          "title": "BEST and WORST AI Tools of the year",
-          "publishedAt": "2026-04-07T21:01:24+00:00",
-          "description": "BEST and WORST AI Tools of the year",
-          "url": "https://www.youtube.com/watch?v=SSygWeXAOh8",
+          "id": "Asn5mKelRYI",
+          "title": "He wants to start an electrical business",
+          "publishedAt": "2026-04-07T15:01:39+00:00",
+          "description": "",
+          "url": "https://www.youtube.com/watch?v=Asn5mKelRYI",
           "transcript": null
         },
         {
-          "id": "wEcFuS6KioI",
-          "title": "Ranking the BEST and WORST AI Tools of 2026",
-          "publishedAt": "2026-04-07T21:00:58+00:00",
-          "description": "Ranking the BEST and WORST AI Tools of 2026",
-          "url": "https://www.youtube.com/watch?v=wEcFuS6KioI",
+          "id": "dstjshW830M",
+          "title": "Life advice from a $100M CEO",
+          "publishedAt": "2026-04-06T21:01:05+00:00",
+          "description": "Life advice from a $100M CEO",
+          "url": "https://www.youtube.com/watch?v=dstjshW830M",
           "transcript": null
         }
       ]
     }
   ],
   "stats": {
-    "channels": 2,
-    "totalVideos": 3
+    "channels": 1,
+    "totalVideos": 2
   },
   "errors": [
     "YouTube: Could not resolve channel ID for Dara Denney (https://www.youtube.com/daradenney)",
