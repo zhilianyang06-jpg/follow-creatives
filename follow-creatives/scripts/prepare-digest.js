@@ -23,7 +23,7 @@ const CONFIG_PATH = join(USER_DIR, 'config.json');
 
 // IMPORTANT: Replace YOUR_GITHUB_USERNAME with your actual GitHub username
 // after pushing this repo to GitHub.
-const REPO_BASE = 'https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/follow-creatives/main';
+const REPO_BASE = 'https://raw.githubusercontent.com/zhilianyang06-jpg/follow-creatives/main';
 const FEED_X_URL        = `${REPO_BASE}/feed-x.json`;
 const FEED_LINKEDIN_URL = `${REPO_BASE}/feed-linkedin.json`;
 const FEED_YOUTUBE_URL  = `${REPO_BASE}/feed-youtube.json`;
