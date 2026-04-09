@@ -1,51 +1,27 @@
 {
-  "generatedAt": "2026-04-09T17:01:28.832Z",
+  "generatedAt": "2026-04-09T18:02:54.218Z",
   "lookbackHours": 72,
   "youtube": [
     {
       "source": "youtube",
-      "name": "Dekker Fraser",
-      "channelUrl": "https://www.youtube.com/@dekkerfraser",
-      "channelId": "UCGVXtXuHVDBM8WIyLEX4sWw",
+      "name": "Motion",
+      "channelUrl": "https://www.youtube.com/@MotionCreativeAnalytics",
+      "channelId": "UC8VwR_Ccss4IRerNV4Kwh0Q",
       "videos": [
         {
-          "id": "gtWj9hIsCgw",
-          "title": "Secret Social Media Marketing Tools 2026",
-          "publishedAt": "2026-04-09T07:15:52+00:00",
-          "description": "Multilogin Coupon Promo Codes:\n50% off monthly plans: &quot;DEKKER50&quot;\nFree trial code: &quot;DEKKEROFF&quot;\n15% off annual plans: &quot;DEKKER15&quot;\n\nMultilogin: https://multilogin.com?a_aid=dekker\n\nSocial Media Marketing Course: https://www.udemy.com/course/social-media-marketing-b2b/?referralCode=50A5BCAC2EA054DA0E2C\n\n#socialmediamarketing #socialmediatool #socialmediamanagement #socialmediamarketingagency #socialmediamarketingtip",
-          "url": "https://www.youtube.com/watch?v=gtWj9hIsCgw",
-          "transcript": null
-        }
-      ]
-    },
-    {
-      "source": "youtube",
-      "name": "Dan Martell",
-      "channelUrl": "https://www.youtube.com/@danmartell",
-      "channelId": "UCA-mWX9CvCTVFWRMb9bKc9w",
-      "videos": [
-        {
-          "id": "zrb_Xl4nwBk",
-          "title": "AI is at a point where it's hiring humans to do the things it can't",
-          "publishedAt": "2026-04-09T15:02:21+00:00",
-          "description": "",
-          "url": "https://www.youtube.com/watch?v=zrb_Xl4nwBk",
-          "transcript": null
-        },
-        {
-          "id": "0pStigyl674",
-          "title": "Give me 14 Minutes and I’ll make You Dangerously Smart (with AI)",
-          "publishedAt": "2026-04-09T13:00:02+00:00",
-          "description": "✅ Get Your FREE AI Company Operating System here: https://go.danmartell.com/4vjwW9B\n\n👥 Are you building an AI software company? Partner with me: https://go.danmartell.com/3ObOfbO\n\nMost people are using AI to save time. That's the surface level. The real advantage goes to the people who use AI to think better, learn faster, and make smarter decisions.\n\nI've built AI into how I learn, how I run my team, and how I pressure test every major decision across my companies and portfolio. In this video,",
-          "url": "https://www.youtube.com/watch?v=0pStigyl674",
+          "id": "mprXXGL42oU",
+          "title": "The Complete Guide To Making UGC Ads - Every Step From Creative Brief to Final Ad",
+          "publishedAt": "2026-04-09T17:35:40+00:00",
+          "description": "It’s not the Creative Strategist’s job to make ads.\nTheir job is to make sure the right ads get made.\n\nAnd in this video, you'll go through the full ad production cycle — from briefing UGC creators to filming to delivering the final Meta ad — so you know exactly what it takes to run the process like a pro Creative Strategist.\n\nAlysha will start by sharing what she looks for in creators and how to find the right one for your brand. Then she’ll break down what she includes in her creator briefs ac",
+          "url": "https://www.youtube.com/watch?v=mprXXGL42oU",
           "transcript": null
         }
       ]
     }
   ],
   "stats": {
-    "channels": 2,
-    "totalVideos": 3
+    "channels": 1,
+    "totalVideos": 1
   },
   "errors": [
     "YouTube: Could not resolve channel ID for Dara Denney (https://www.youtube.com/daradenney)",
