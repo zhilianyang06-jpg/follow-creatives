@@ -1,7 +1,23 @@
 {
-  "generatedAt": "2026-04-08T23:18:30.644Z",
+  "generatedAt": "2026-04-09T17:01:28.832Z",
   "lookbackHours": 72,
   "youtube": [
+    {
+      "source": "youtube",
+      "name": "Dekker Fraser",
+      "channelUrl": "https://www.youtube.com/@dekkerfraser",
+      "channelId": "UCGVXtXuHVDBM8WIyLEX4sWw",
+      "videos": [
+        {
+          "id": "gtWj9hIsCgw",
+          "title": "Secret Social Media Marketing Tools 2026",
+          "publishedAt": "2026-04-09T07:15:52+00:00",
+          "description": "Multilogin Coupon Promo Codes:\n50% off monthly plans: &quot;DEKKER50&quot;\nFree trial code: &quot;DEKKEROFF&quot;\n15% off annual plans: &quot;DEKKER15&quot;\n\nMultilogin: https://multilogin.com?a_aid=dekker\n\nSocial Media Marketing Course: https://www.udemy.com/course/social-media-marketing-b2b/?referralCode=50A5BCAC2EA054DA0E2C\n\n#socialmediamarketing #socialmediatool #socialmediamanagement #socialmediamarketingagency #socialmediamarketingtip",
+          "url": "https://www.youtube.com/watch?v=gtWj9hIsCgw",
+          "transcript": null
+        }
+      ]
+    },
     {
       "source": "youtube",
       "name": "Dan Martell",
@@ -9,27 +25,27 @@
       "channelId": "UCA-mWX9CvCTVFWRMb9bKc9w",
       "videos": [
         {
-          "id": "U2W-RldbeMA",
-          "title": "What makes a great leader?",
-          "publishedAt": "2026-04-06T15:00:58+00:00",
+          "id": "zrb_Xl4nwBk",
+          "title": "AI is at a point where it's hiring humans to do the things it can't",
+          "publishedAt": "2026-04-09T15:02:21+00:00",
           "description": "",
-          "url": "https://www.youtube.com/watch?v=U2W-RldbeMA",
+          "url": "https://www.youtube.com/watch?v=zrb_Xl4nwBk",
           "transcript": null
         },
         {
-          "id": "dyrr4eAdnhg",
-          "title": "If I Started Over With $0, Here’s My Exact Plan to get to $1M",
-          "publishedAt": "2026-04-06T13:01:10+00:00",
-          "description": "✅ Get your FREE Sell by Chat Playbook here: https://go.danmartell.com/4c6Lxw7\n\nIf I lost everything tomorrow and had to rebuild from scratch, this is the exact playbook I would follow. I built multiple companies from nothing, and I know firsthand what actually works when you have no money, no connections, and no safety net.\n\nI break down the step by step plan I would use to go from zero to my first paying clients as fast as possible, including how AI changes the game at every stage. Watch to the",
-          "url": "https://www.youtube.com/watch?v=dyrr4eAdnhg",
+          "id": "0pStigyl674",
+          "title": "Give me 14 Minutes and I’ll make You Dangerously Smart (with AI)",
+          "publishedAt": "2026-04-09T13:00:02+00:00",
+          "description": "✅ Get Your FREE AI Company Operating System here: https://go.danmartell.com/4vjwW9B\n\n👥 Are you building an AI software company? Partner with me: https://go.danmartell.com/3ObOfbO\n\nMost people are using AI to save time. That's the surface level. The real advantage goes to the people who use AI to think better, learn faster, and make smarter decisions.\n\nI've built AI into how I learn, how I run my team, and how I pressure test every major decision across my companies and portfolio. In this video,",
+          "url": "https://www.youtube.com/watch?v=0pStigyl674",
           "transcript": null
         }
       ]
     }
   ],
   "stats": {
-    "channels": 1,
-    "totalVideos": 2
+    "channels": 2,
+    "totalVideos": 3
   },
   "errors": [
     "YouTube: Could not resolve channel ID for Dara Denney (https://www.youtube.com/daradenney)",
