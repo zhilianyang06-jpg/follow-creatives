@@ -1,35 +1,19 @@
 {
-  "generatedAt": "2026-04-10T17:53:25.313Z",
+  "generatedAt": "2026-04-11T17:39:57.507Z",
   "lookbackHours": 72,
   "youtube": [
     {
       "source": "youtube",
-      "name": "Stuff About Advertising",
-      "channelUrl": "https://www.youtube.com/@StuffAboutAdvertising",
-      "channelId": "UCErPUEJHpFwrTH-BDakPOZw",
+      "name": "HubSpot Marketing",
+      "channelUrl": "https://www.youtube.com/@HubSpotMarketing",
+      "channelId": "UCVeuau7DLrg7zlAjxxDbdww",
       "videos": [
         {
-          "id": "D26IgRslWCQ",
-          "title": "What Game Design Gets Right About Attention (That Advertising Gets Wrong)",
-          "publishedAt": "2026-04-09T19:20:30+00:00",
-          "description": "Want to get better at building big ideas? Check out Big Idea Bootcamp — a step-by-step course in strategic creative thinking: https://www.stuffaboutadvertising.com/big-idea-bootcamp\n\nGame designers have spent decades figuring out how to make people voluntarily show up, stay engaged, and keep coming back. Advertisers are still trying to figure out how to stop people from hitting skip.\nIn this video I'm borrowing three concepts from game design — the magic circle, intrinsic vs. extrinsic motivatio",
-          "url": "https://www.youtube.com/watch?v=D26IgRslWCQ",
-          "transcript": null
-        }
-      ]
-    },
-    {
-      "source": "youtube",
-      "name": "Adam Erhart",
-      "channelUrl": "https://www.youtube.com/@Adamerhartvideo",
-      "channelId": "UCKU0u3VbuYn0wD3CUr-Yn6A",
-      "videos": [
-        {
-          "id": "YMoUZCXEcI0",
-          "title": "This Simple AI Service Gets Clients to Pay You Every Month",
-          "publishedAt": "2026-04-10T13:01:07+00:00",
-          "description": "👉 Free AI Agency Course (+ $8,273 in bonuses): https://adamerhart.co/3MtWEX2\n⚡ Extended 30-Day HighLevel Trial (Install the System + Unlock Bonuses): https://adamerhart.co/3MYeRMM\n\nWhen you start, you get immediate access to:\n• A simple AI-powered agency model you can launch fast\n• A high-demand service businesses already need\n• Prebuilt funnels, follow-up, and booking\n• Client scripts and outreach templates\n• A step-by-step 90-day roadmap\n• Done-for-you automations\n• Ongoing coaching and commu",
-          "url": "https://www.youtube.com/watch?v=YMoUZCXEcI0",
+          "id": "DykchYDp02Y",
+          "title": "The #1 Style Guide Mistake Killing Your Brand Consistency",
+          "publishedAt": "2026-04-11T15:00:31+00:00",
+          "description": "Why “don’t do this” matters in branding.\n\n*If your branding feels scattered, start here.* 🔗 https://clickhubspot.com/7028ab\n\nMost brand style guides fail for one simple reason: they only tell people what TO do—not what NOT to do. The best style guides create clear boundaries, showing both the right moves and the wrong ones.\n\nGreat brands don’t leave room for guesswork.\n\nSubscribe for more HubSpot\n🔗 https://clickhubspot.com/t90m\n\n📙 FREE Certification Courses\nDigital Marketing Certification:\n👉",
+          "url": "https://www.youtube.com/watch?v=DykchYDp02Y",
           "transcript": null
         }
       ]
@@ -41,27 +25,27 @@
       "channelId": "UCA-mWX9CvCTVFWRMb9bKc9w",
       "videos": [
         {
-          "id": "I2Bj3LThNyU",
-          "title": "Money can buy happiness...",
-          "publishedAt": "2026-04-10T15:48:55+00:00",
+          "id": "Ty3qn2bNXt0",
+          "title": "The best piece of parenting advice is...",
+          "publishedAt": "2026-04-11T15:01:34+00:00",
           "description": "",
-          "url": "https://www.youtube.com/watch?v=I2Bj3LThNyU",
+          "url": "https://www.youtube.com/watch?v=Ty3qn2bNXt0",
           "transcript": null
         },
         {
-          "id": "-euHP82SnvA",
-          "title": "Wanna get better at sales? Stop using these words.",
-          "publishedAt": "2026-04-09T21:01:25+00:00",
-          "description": "Wanna get better at sales? Stop using these words.",
-          "url": "https://www.youtube.com/watch?v=-euHP82SnvA",
+          "id": "9Cp0tNCukuw",
+          "title": "Helping a young entrepreneur with his social media business",
+          "publishedAt": "2026-04-10T23:01:45+00:00",
+          "description": "Helping a young entrepreneur with his social media business",
+          "url": "https://www.youtube.com/watch?v=9Cp0tNCukuw",
           "transcript": null
         }
       ]
     }
   ],
   "stats": {
-    "channels": 3,
-    "totalVideos": 4
+    "channels": 2,
+    "totalVideos": 3
   },
   "errors": [
     "YouTube: Could not resolve channel ID for Dara Denney (https://www.youtube.com/daradenney)",
