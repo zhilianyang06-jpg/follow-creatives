@@ -1,23 +1,7 @@
 {
-  "generatedAt": "2026-04-11T17:39:57.507Z",
+  "generatedAt": "2026-04-12T17:42:13.998Z",
   "lookbackHours": 72,
   "youtube": [
-    {
-      "source": "youtube",
-      "name": "HubSpot Marketing",
-      "channelUrl": "https://www.youtube.com/@HubSpotMarketing",
-      "channelId": "UCVeuau7DLrg7zlAjxxDbdww",
-      "videos": [
-        {
-          "id": "DykchYDp02Y",
-          "title": "The #1 Style Guide Mistake Killing Your Brand Consistency",
-          "publishedAt": "2026-04-11T15:00:31+00:00",
-          "description": "Why “don’t do this” matters in branding.\n\n*If your branding feels scattered, start here.* 🔗 https://clickhubspot.com/7028ab\n\nMost brand style guides fail for one simple reason: they only tell people what TO do—not what NOT to do. The best style guides create clear boundaries, showing both the right moves and the wrong ones.\n\nGreat brands don’t leave room for guesswork.\n\nSubscribe for more HubSpot\n🔗 https://clickhubspot.com/t90m\n\n📙 FREE Certification Courses\nDigital Marketing Certification:\n👉",
-          "url": "https://www.youtube.com/watch?v=DykchYDp02Y",
-          "transcript": null
-        }
-      ]
-    },
     {
       "source": "youtube",
       "name": "Dan Martell",
@@ -25,27 +9,27 @@
       "channelId": "UCA-mWX9CvCTVFWRMb9bKc9w",
       "videos": [
         {
-          "id": "Ty3qn2bNXt0",
-          "title": "The best piece of parenting advice is...",
-          "publishedAt": "2026-04-11T15:01:34+00:00",
+          "id": "4HYXzh6Xch0",
+          "title": "Should you pay for these AI tools?",
+          "publishedAt": "2026-04-12T15:01:25+00:00",
           "description": "",
-          "url": "https://www.youtube.com/watch?v=Ty3qn2bNXt0",
+          "url": "https://www.youtube.com/watch?v=4HYXzh6Xch0",
           "transcript": null
         },
         {
-          "id": "9Cp0tNCukuw",
-          "title": "Helping a young entrepreneur with his social media business",
-          "publishedAt": "2026-04-10T23:01:45+00:00",
-          "description": "Helping a young entrepreneur with his social media business",
-          "url": "https://www.youtube.com/watch?v=9Cp0tNCukuw",
+          "id": "UNI0eRm5yrw",
+          "title": "Should you pay for these AI tools?",
+          "publishedAt": "2026-04-12T15:01:11+00:00",
+          "description": "",
+          "url": "https://www.youtube.com/watch?v=UNI0eRm5yrw",
           "transcript": null
         }
       ]
     }
   ],
   "stats": {
-    "channels": 2,
-    "totalVideos": 3
+    "channels": 1,
+    "totalVideos": 2
   },
   "errors": [
     "YouTube: Could not resolve channel ID for Dara Denney (https://www.youtube.com/daradenney)",
